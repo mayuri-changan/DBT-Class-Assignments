@@ -1,0 +1,629 @@
+Q1)
+Retrieve the entire contents of EMP table.
+query=> use d1;
+Database changed
+query=> desc emp;
+
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+Q2)
+Print the name of employees.
+query=>select * from emp;
+
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+  
+Q3)
+Print the name of employees.
+query=>SELECT ENAME FROM EMP;
+
++----------+
+| ENAME    |
++----------+
+| GITA     |
+| VRUSHALI |
+| SHARMIN  |
+| BANDISH  |
+| SMITH    |
+| AARAV    |
+| THOMAS   |
+| ALLEN    |
+| WARD     |
+| JONES    |
+| MARTIN   |
+| BLAKE    |
+| CLARK    |
+| SCOTT    |
+| KING     |
+| FRED     |
+| TURNER   |
+| ADAMS    |
+| Ruhan    |
+| Neel     |
+| JAMES    |
+| FORD     |
+| HOFFMAN  |
+| GRASS    |
+| MILLER   |
+| AARUSH   |
+| ALEX     |
+| NATASHA  |
+| SANGITA  |
+| SUPRIYA  |
++----------+
+30 rows in set (0.00 sec)
+
+
+Q3)
+Retrieve the list of names and jobs of employees.
+query=> SELECT ENAME, JOB FROM EMP;
+
++----------+---------------------+
+| ENAME    | JOB                 |
++----------+---------------------+
+| GITA     | Compliance officers |
+| VRUSHALI | Compliance officers |
+| SHARMIN  | Public Relation     |
+| BANDISH  | Public Relation     |
+| SMITH    | CLERK               |
+| AARAV    | CLERK               |
+| THOMAS   | CLERK               |
+| ALLEN    | SALESMAN            |
+| WARD     | SALESMAN            |
+| JONES    | MANAGER             |
+| MARTIN   | SALESMAN            |
+| BLAKE    | MANAGER             |
+| CLARK    | MANAGER             |
+| SCOTT    | ANALYST             |
+| KING     | PRESIDENT           |
+| FRED     | vice PRESIDENT      |
+| TURNER   | SALESMAN            |
+| ADAMS    | CLERK               |
+| Ruhan    | Network             |
+| Neel     | vice PRESIDENT      |
+| JAMES    | CLERK               |
+| FORD     | ANALYST             |
+| HOFFMAN  | MANAGER             |
+| GRASS    | SALESMAN            |
+| MILLER   | CLERK               |
+| AARUSH   | SALESMAN            |
+| ALEX     | MANAGER             |
+| NATASHA  | CLERK               |
+| SANGITA  | Compliance officers |
+| SUPRIYA  | ANALYST             |
++----------+---------------------+
+30 rows in set (0.00 sec)
+
+
+Q4)
+List of various department available from dept table.
+query=>SELECT DNAME FROM DEPT;
+
+
++------------+
+| DNAME      |
++------------+
+| ACCOUNTING |
+| RESEARCH   |
+| SALES      |
+| OPERATIONS |
+| HR         |
+| IT         |
++------------+
+
+
+
+Q5)
+List all information about the Employees of the EMP table.
+query=>SELECT * FROM EMP;
+
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+
+
+
+Q6)
+Show the information of the Department table.
+query=>SELECT * FROM DEPT;
+
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+
+
+Q7)
+Display the contents of the column Empno, Ename as Employee Name and Sal from the Emp table.
+query=>SELECT EMPNO, ENAME AS "Employee Name", SAL FROM EMP;
+
++-------+---------------+------+
+| EMPNO | Employee Name | SAL  |
++-------+---------------+------+
+|  6001 | GITA          | 1750 |
+|  6129 | VRUSHALI      | 1750 |
+|  6473 | SHARMIN       | 1750 |
+|  6781 | BANDISH       | 1750 |
+|  7369 | SMITH         |  800 |
+|  7415 | AARAV         | 3350 |
+|  7421 | THOMAS        | 1750 |
+|  7499 | ALLEN         | 1600 |
+|  7521 | WARD          | 1250 |
+|  7566 | JONES         | 2975 |
+|  7654 | MARTIN        | 1250 |
+|  7698 | BLAKE         | 2850 |
+|  7782 | CLARK         | 2450 |
+|  7788 | SCOTT         | 3000 |
+|  7839 | KING          | 5000 |
+|  7840 | FRED          | 5000 |
+|  7844 | TURNER        | 1500 |
+|  7876 | ADAMS         | 1100 |
+|  7888 | Ruhan         | 2000 |
+|  7889 | Neel          | 1000 |
+|  7900 | JAMES         |  950 |
+|  7902 | FORD          | 3000 |
+|  7919 | HOFFMAN       | 4150 |
+|  7920 | GRASS         | 2575 |
+|  7934 | MILLER        | 1300 |
+|  7945 | AARUSH        | 1350 |
+|  7949 | ALEX          | 1250 |
+|  8433 | NATASHA       | 1750 |
+|  9400 | SANGITA       | 1750 |
+|  9473 | SUPRIYA       | 1750 |
++-------+---------------+------+
+
+
+Q8)
+Display the Job, Comm and Ename from the Emp table with Customized column headings.
+query=>select job as "job title",comm as"commision",ename as "employee name" from emp;
++---------------------+-----------+---------------+
+| job title           | commision | employee name |
++---------------------+-----------+---------------+
+| Compliance officers |      NULL | GITA          |
+| Compliance officers |      NULL | VRUSHALI      |
+| Public Relation     |      NULL | SHARMIN       |
+| Public Relation     |      NULL | BANDISH       |
+| CLERK               |      NULL | SMITH         |
+| CLERK               |      NULL | AARAV         |
+| CLERK               |      NULL | THOMAS        |
+| SALESMAN            |       300 | ALLEN         |
+| SALESMAN            |       500 | WARD          |
+| MANAGER             |      NULL | JONES         |
+| SALESMAN            |      1400 | MARTIN        |
+| MANAGER             |      NULL | BLAKE         |
+| MANAGER             |      NULL | CLARK         |
+| ANALYST             |      NULL | SCOTT         |
+| PRESIDENT           |      NULL | KING          |
+| vice PRESIDENT      |      NULL | FRED          |
+| SALESMAN            |         0 | TURNER        |
+| CLERK               |      NULL | ADAMS         |
+| Network             |      NULL | Ruhan         |
+| vice PRESIDENT      |      NULL | Neel          |
+| CLERK               |      NULL | JAMES         |
+| ANALYST             |      NULL | FORD          |
+| MANAGER             |      NULL | HOFFMAN       |
+| SALESMAN            |      2700 | GRASS         |
+| CLERK               |      1300 | MILLER        |
+| SALESMAN            |      2700 | AARUSH        |
+| MANAGER             |       500 | ALEX          |
+| CLERK               |      NULL | NATASHA       |
+| Compliance officers |      NULL | SANGITA       |
+| ANALYST             |      NULL | SUPRIYA       |
++---------------------+-----------+---------------+
+
+
+Q9)
+Display the location as “Location” and names of all the departments as “Department Names”.
+query=>select loc as "location name",dname as "department name"from dept;
++---------------+-----------------+
+| location name | department name |
++---------------+-----------------+
+| NEW YORK      | ACCOUNTING      |
+| DALLAS        | RESEARCH        |
+| CHICAGO       | SALES           |
+| BOSTON        | OPERATIONS      |
+| PUNE          | HR              |
+| BARODA        | IT              |
++---------------+-----------------+
+
+Q10)
+List the different Managers Codes.
+query=> select mgr from emp;
+
++------+
+| mgr  |
++------+
+| NULL |
+| 7566 |
+| 7566 |
+| 7566 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7782 |
+| 7788 |
+| 7839 |
+| 7839 |
+| 7839 |
+| 7839 |
+| 7839 |
+| 7888 |
+| 7902 |
+| 7902 |
+| 7902 |
+| 7919 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
++------+
+
+
+Q11)
+Write a query, which concatenates the Emp No, Name and Mgr Code. Display output with spaces in the columns.
+query=> select concat (empno,' ',ename,' ',mgr,' ')as details from emp;
+
+
++---------------------+
+| details             |
++---------------------+
+| 6001 GITA 7920      |
+| 6129 VRUSHALI 7920  |
+| 6473 SHARMIN 7920   |
+| 6781 BANDISH 7920   |
+| 7369 SMITH 7902     |
+| 7415 AARAV 7902     |
+| 7421 THOMAS 7920    |
+| 7499 ALLEN 7698     |
+| 7521 WARD 7698      |
+| 7566 JONES 7839     |
+| 7654 MARTIN 7698    |
+| 7698 BLAKE 7839     |
+| 7782 CLARK 7839     |
+| 7788 SCOTT 7566     |
+| NULL                |
+| 7840 FRED 7839      |
+| 7844 TURNER 7698    |
+| 7876 ADAMS 7788     |
+| 7888 Ruhan 7888     |
+| 7889 Neel 7839      |
+| 7900 JAMES 7698     |
+| 7902 FORD 7566      |
+| 7919 HOFFMAN 7566   |
+| 7920 GRASS 7919     |
+| 7934 MILLER 7782    |
+| 7945 AARUSH 7902    |
+| 7949 ALEX 7698      |
+| 8433 NATASHA 7920   |
+| 9400 SANGITA 7920   |
+| 9473 SUPRIYA 7920   |
++---------------------+
+
+Q12)
+Create a query to display all the data from the EMP table, separate each column by a comma.
+query=>select concat(empno,',',ename,',',job,',',sal,',',gender)as data from emp;
+ 
++------------------------------------------+
+| data                                     |
++------------------------------------------+
+| 6001,GITA,Compliance officers,1750,F     |
+| 6129,VRUSHALI,Compliance officers,1750,F |
+| 6473,SHARMIN,Public Relation,1750,F      |
+| 6781,BANDISH,Public Relation,1750,F      |
+| 7369,SMITH,CLERK,800,M                   |
+| 7415,AARAV,CLERK,3350,M                  |
+| 7421,THOMAS,CLERK,1750,M                 |
+| 7499,ALLEN,SALESMAN,1600,M               |
+| 7521,WARD,SALESMAN,1250,M                |
+| 7566,JONES,MANAGER,2975,M                |
+| 7654,MARTIN,SALESMAN,1250,M              |
+| 7698,BLAKE,MANAGER,2850,M                |
+| 7782,CLARK,MANAGER,2450,M                |
+| 7788,SCOTT,ANALYST,3000,M                |
+| 7839,KING,PRESIDENT,5000,M               |
+| 7840,FRED,vice PRESIDENT,5000,M          |
+| 7844,TURNER,SALESMAN,1500,M              |
+| 7876,ADAMS,CLERK,1100,M                  |
+| 7888,Ruhan,Network,2000,M                |
+| 7889,Neel,vice PRESIDENT,1000,M          |
+| 7900,JAMES,CLERK,950,M                   |
+| 7902,FORD,ANALYST,3000,M                 |
+| 7919,HOFFMAN,MANAGER,4150,M              |
+| 7920,GRASS,SALESMAN,2575,M               |
+| 7934,MILLER,CLERK,1300,M                 |
+| 7945,AARUSH,SALESMAN,1350,M              |
+| 7949,ALEX,MANAGER,1250,M                 |
+| 8433,NATASHA,CLERK,1750,F                |
+| 9400,SANGITA,Compliance officers,1750,F  |
+| 9473,SUPRIYA,ANALYST,1750,F              |
++------------------------------------------+
+
+
+Q13)
+Modify the above query to add a column that will subtract the Old Salary from the New Salary.
+query=>select (sal-100)as substracted from emp;
+
++-------------+
+| substracted |
++-------------+
+|        1650 |
+|        1650 |
+|        1650 |
+|        1650 |
+|         700 |
+|        3250 |
+|        1650 |
+|        1500 |
+|        1150 |
+|        2875 |
+|        1150 |
+|        2750 |
+|        2350 |
+|        2900 |
+|        4900 |
+|        4900 |
+|        1400 |
+|        1000 |
+|        1900 |
+|         900 |
+|         850 |
+|        2900 |
+|        4050 |
+|        2475 |
+|        1200 |
+|        1250 |
+|        1150 |
+|        1650 |
+|        1650 |
+|        1650 |
++-------------+
+
+
+Q14)
+Write a query that produces the following for each employee as- 
+<employee name> earns <salary> monthly, but wants salary <3 times salary>. Label the columns Dream Salaries.
+query=>select concat(empno,',',ename,',',sal,'future sal  ',sal*3)as "dream salaray" from emp;
+
++------------------------------------+
+| dream salaray                      |
++------------------------------------+
+| 6001,GITA,1750future sal  5250     |
+| 6129,VRUSHALI,1750future sal  5250 |
+| 6473,SHARMIN,1750future sal  5250  |
+| 6781,BANDISH,1750future sal  5250  |
+| 7369,SMITH,800future sal  2400     |
+| 7415,AARAV,3350future sal  10050   |
+| 7421,THOMAS,1750future sal  5250   |
+| 7499,ALLEN,1600future sal  4800    |
+| 7521,WARD,1250future sal  3750     |
+| 7566,JONES,2975future sal  8925    |
+| 7654,MARTIN,1250future sal  3750   |
+| 7698,BLAKE,2850future sal  8550    |
+| 7782,CLARK,2450future sal  7350    |
+| 7788,SCOTT,3000future sal  9000    |
+| 7839,KING,5000future sal  15000    |
+| 7840,FRED,5000future sal  15000    |
+| 7844,TURNER,1500future sal  4500   |
+| 7876,ADAMS,1100future sal  3300    |
+| 7888,Ruhan,2000future sal  6000    |
+| 7889,Neel,1000future sal  3000     |
+| 7900,JAMES,950future sal  2850     |
+| 7902,FORD,3000future sal  9000     |
+| 7919,HOFFMAN,4150future sal  12450 |
+| 7920,GRASS,2575future sal  7725    |
+| 7934,MILLER,1300future sal  3900   |
+| 7945,AARUSH,1350future sal  4050   |
+| 7949,ALEX,1250future sal  3750     |
+| 8433,NATASHA,1750future sal  5250  |
+| 9400,SANGITA,1750future sal  5250  |
+| 9473,SUPRIYA,1750future sal  5250  |
++------------------------------------+
+
+Q15)
+Display different types of positions available in the Company.
+query=>  select job from emp;
+
++---------------------+
+| job                 |
++---------------------+
+| Compliance officers |
+| Compliance officers |
+| Public Relation     |
+| Public Relation     |
+| CLERK               |
+| CLERK               |
+| CLERK               |
+| SALESMAN            |
+| SALESMAN            |
+| MANAGER             |
+| SALESMAN            |
+| MANAGER             |
+| MANAGER             |
+| ANALYST             |
+| PRESIDENT           |
+| vice PRESIDENT      |
+| SALESMAN            |
+| CLERK               |
+| Network             |
+| vice PRESIDENT      |
+| CLERK               |
+| ANALYST             |
+| MANAGER             |
+| SALESMAN            |
+| CLERK               |
+| SALESMAN            |
+| MANAGER             |
+| CLERK               |
+| Compliance officers |
+| ANALYST             |
++---------------------+ 
+
+Q16)
+Using the sales table, you need to report the following Appropriate column heading should be given for all the columns.
+query=>select custid as"customer id",custname as" customer name",amount as"amt",prodname as"product name",prodid as"product id",repid as"repeated id" from sales;
+
++-------------+----------------+----------+-------------------------+------------+-------------+
+| customer id | customer name  | amt      | product name            | product id | repeated id |
++-------------+----------------+----------+-------------------------+------------+-------------+
+|         100 | JOCKSPORTS     |  1703.40 | RH: "GUIDE TO TENNIS"   |     102130 |        7844 |
+|         100 | JOCKSPORTS     |   485.00 | ACE TENNIS RACKET II    |     100861 |        7844 |
+|         100 | JOCKSPORTS     |   292.50 | ACE TENNIS BALLS-3 PACK |     100870 |        7844 |
+|         100 | JOCKSPORTS     |    50.00 | ACE TENNIS NET          |     100890 |        7844 |
+|         100 | JOCKSPORTS     |   350.00 | ACE TENNIS RACKET I     |     100860 |        7844 |
+|         100 | JOCKSPORTS     |  2400.00 | SB ENERGY BAR-6 PACK    |     200376 |        7844 |
+|         101 | TKB SPORT SHOP |    35.00 | ACE TENNIS RACKET I     |     100860 |        7521 |
+|         101 | TKB SPORT SHOP |     8.40 | ACE TENNIS BALLS-3 PACK |     100870 |        7521 |
+|         101 | TKB SPORT SHOP |    58.00 | ACE TENNIS NET          |     100890 |        7521 |
+|         102 | VOLLYRITE      |  3306.00 | ACE TENNIS BALLS-3 PACK |     100870 |        7654 |
+|         102 | VOLLYRITE      | 16569.00 | ACE TENNIS RACKET I     |     100860 |        7654 |
+|         102 | VOLLYRITE      |  2300.50 | ACE TENNIS RACKET II    |     100861 |        7654 |
+|         102 | VOLLYRITE      |  5600.00 | ACE TENNIS BALLS-6 PACK |     100871 |        7654 |
+|         103 | JUST TENNIS    |   450.00 | ACE TENNIS RACKET II    |     100861 |        7521 |
+|         103 | JUST TENNIS    |   140.00 | ACE TENNIS BALLS-3 PACK |     100870 |        7521 |
+|         103 | JUST TENNIS    |   116.00 | ACE TENNIS NET          |     100890 |        7521 |
+|         103 | JUST TENNIS    |    34.00 | RH: "GUIDE TO TENNIS"   |     102130 |        7521 |
+|         103 | JUST TENNIS    |    24.00 | SB ENERGY BAR-6 PACK    |     200376 |        7521 |
+|         104 | EVERY MOUNTAIN |   846.80 | ACE TENNIS BALLS-6 PACK |     100871 |        7499 |
+|         104 | EVERY MOUNTAIN |    24.00 | SP TENNIS RACKET        |     101860 |        7499 |
+|         104 | EVERY MOUNTAIN |  3000.00 | ACE TENNIS RACKET I     |     100860 |        7499 |
+|         104 | EVERY MOUNTAIN |   810.00 | ACE TENNIS RACKET II    |     100861 |        7499 |
+|         104 | EVERY MOUNTAIN |  1500.00 | SP JUNIOR RACKET        |     101863 |        7499 |
+|         104 | EVERY MOUNTAIN |   400.00 | SB VITA SNACK-6 PACK    |     200380 |        7499 |
+|         104 | EVERY MOUNTAIN |   240.00 | SB ENERGY BAR-6 PACK    |     200376 |        7499 |
+|         104 | EVERY MOUNTAIN |   340.00 | RH: "GUIDE TO TENNIS"   |     102130 |        7499 |
+|         105 | K + T SPORTS   |  1750.00 | ACE TENNIS RACKET I     |     100860 |        7844 |
+|         105 | K + T SPORTS   |  4500.00 | ACE TENNIS RACKET II    |     100861 |        7844 |
+|         105 | K + T SPORTS   |  1400.00 | ACE TENNIS BALLS-3 PACK |     100870 |        7844 |
+|         105 | K + T SPORTS   |  2800.00 | ACE TENNIS BALLS-6 PACK |     100871 |        7844 |
+|         105 | K + T SPORTS   | 29000.00 | ACE TENNIS NET          |     100890 |        7844 |
+|         105 | K + T SPORTS   |  2400.00 | SP TENNIS RACKET        |     101860 |        7844 |
+|         105 | K + T SPORTS   |  2500.00 | SP JUNIOR RACKET        |     101863 |        7844 |
+|         105 | K + T SPORTS   |   340.00 | RH: "GUIDE TO TENNIS"   |     102130 |        7844 |
+|         105 | K + T SPORTS   |   480.00 | SB ENERGY BAR-6 PACK    |     200376 |        7844 |
+|         105 | K + T SPORTS   |  1200.00 | SB VITA SNACK-6 PACK    |     200380 |        7844 |
+|         106 | SHAPE UP       |     2.40 | SB ENERGY BAR-6 PACK    |     200376 |        7521 |
+|         106 | SHAPE UP       |   174.00 | ACE TENNIS NET          |     100890 |        7521 |
+|         106 | SHAPE UP       |    84.00 | ACE TENNIS RACKET II    |     100861 |        7521 |
+|         106 | SHAPE UP       |   440.00 | ACE TENNIS RACKET I     |     100860 |        7521 |
+|         107 | WOMENS SPORTS  |   180.00 | ACE TENNIS RACKET II    |     100861 |        7499 |
+|         107 | WOMENS SPORTS  |   280.00 | ACE TENNIS BALLS-3 PACK |     100870 |        7499 |
+|         107 | WOMENS SPORTS  |   250.00 | ACE TENNIS BALLS-6 PACK |     100871 |        7499 |
+|         108 | NORTH WOODS    |   560.00 | ACE TENNIS BALLS-6 PACK |     100871 |        7844 |
+|         108 | NORTH WOODS    |  4800.00 | SP TENNIS RACKET        |     101860 |        7844 |
+|         108 | NORTH WOODS    |   600.00 | SB VITA SNACK-6 PACK    |     200380 |        7844 |
+|         108 | NORTH WOODS    |   440.00 | SB ENERGY BAR-6 PACK    |     200376 |        7844 |
++-------------+----------------+----------+-------------------------+------------+-------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
