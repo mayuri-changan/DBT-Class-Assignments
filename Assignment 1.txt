@@ -22,7 +22,7 @@ query=> desc emp;
 | PHONE     | varchar(45) | YES  |     | NULL    |       |
 | isActive  | tinyint(1)  | YES  |     | NULL    |       |
 +-----------+-------------+------+-----+---------+-------+
-14 rows in set (0.00 sec)
+
 
 Q2)
 Print the name of employees.
@@ -62,7 +62,7 @@ query=>select * from emp;
 |  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
 |  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
 +-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
-30 rows in set (0.00 sec)
+
   
 Q3)
 Print the name of employees.
@@ -102,10 +102,10 @@ query=>SELECT ENAME FROM EMP;
 | SANGITA  |
 | SUPRIYA  |
 +----------+
-30 rows in set (0.00 sec)
 
 
-Q3)
+
+Q4)
 Retrieve the list of names and jobs of employees.
 query=> SELECT ENAME, JOB FROM EMP;
 
@@ -143,10 +143,10 @@ query=> SELECT ENAME, JOB FROM EMP;
 | SANGITA  | Compliance officers |
 | SUPRIYA  | ANALYST             |
 +----------+---------------------+
-30 rows in set (0.00 sec)
 
 
-Q4)
+
+Q5)
 List of various department available from dept table.
 query=>SELECT DNAME FROM DEPT;
 
@@ -164,7 +164,7 @@ query=>SELECT DNAME FROM DEPT;
 
 
 
-Q5)
+Q6)
 List all information about the Employees of the EMP table.
 query=>SELECT * FROM EMP;
 
@@ -205,7 +205,7 @@ query=>SELECT * FROM EMP;
 
 
 
-Q6)
+Q7)
 Show the information of the Department table.
 query=>SELECT * FROM DEPT;
 
@@ -221,7 +221,7 @@ query=>SELECT * FROM DEPT;
 +--------+------------+----------+------------+------------+
 
 
-Q7)
+Q8)
 Display the contents of the column Empno, Ename as Employee Name and Sal from the Emp table.
 query=>SELECT EMPNO, ENAME AS "Employee Name", SAL FROM EMP;
 
@@ -261,7 +261,7 @@ query=>SELECT EMPNO, ENAME AS "Employee Name", SAL FROM EMP;
 +-------+---------------+------+
 
 
-Q8)
+Q9)
 Display the Job, Comm and Ename from the Emp table with Customized column headings.
 query=>select job as "job title",comm as"commision",ename as "employee name" from emp;
 +---------------------+-----------+---------------+
@@ -300,7 +300,7 @@ query=>select job as "job title",comm as"commision",ename as "employee name" fro
 +---------------------+-----------+---------------+
 
 
-Q9)
+Q10)
 Display the location as “Location” and names of all the departments as “Department Names”.
 query=>select loc as "location name",dname as "department name"from dept;
 +---------------+-----------------+
@@ -314,7 +314,7 @@ query=>select loc as "location name",dname as "department name"from dept;
 | BARODA        | IT              |
 +---------------+-----------------+
 
-Q10)
+Q11)
 List the different Managers Codes.
 query=> select mgr from emp;
 
@@ -354,7 +354,7 @@ query=> select mgr from emp;
 +------+
 
 
-Q11)
+Q12)
 Write a query, which concatenates the Emp No, Name and Mgr Code. Display output with spaces in the columns.
 query=> select concat (empno,' ',ename,' ',mgr,' ')as details from emp;
 
@@ -394,7 +394,7 @@ query=> select concat (empno,' ',ename,' ',mgr,' ')as details from emp;
 | 9473 SUPRIYA 7920   |
 +---------------------+
 
-Q12)
+Q13)
 Create a query to display all the data from the EMP table, separate each column by a comma.
 query=>select concat(empno,',',ename,',',job,',',sal,',',gender)as data from emp;
  
@@ -434,7 +434,7 @@ query=>select concat(empno,',',ename,',',job,',',sal,',',gender)as data from emp
 +------------------------------------------+
 
 
-Q13)
+Q14)
 Modify the above query to add a column that will subtract the Old Salary from the New Salary.
 query=>select (sal-100)as substracted from emp;
 
@@ -474,7 +474,7 @@ query=>select (sal-100)as substracted from emp;
 +-------------+
 
 
-Q14)
+Q15)
 Write a query that produces the following for each employee as- 
 <employee name> earns <salary> monthly, but wants salary <3 times salary>. Label the columns Dream Salaries.
 query=>select concat(empno,',',ename,',',sal,'future sal  ',sal*3)as "dream salaray" from emp;
@@ -514,7 +514,7 @@ query=>select concat(empno,',',ename,',',sal,'future sal  ',sal*3)as "dream sala
 | 9473,SUPRIYA,1750future sal  5250  |
 +------------------------------------+
 
-Q15)
+Q16)
 Display different types of positions available in the Company.
 query=>  select job from emp;
 
@@ -553,7 +553,7 @@ query=>  select job from emp;
 | ANALYST             |
 +---------------------+ 
 
-Q16)
+Q17)
 Using the sales table, you need to report the following Appropriate column heading should be given for all the columns.
 query=>select custid as"customer id",custname as" customer name",amount as"amt",prodname as"product name",prodid as"product id",repid as"repeated id" from sales;
 
