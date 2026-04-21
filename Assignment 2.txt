@@ -228,7 +228,8 @@ QUERY=> SELECT ENAME, HIREDATE, DAYNAME(HIREDATE) AS DAY FROM EMP ORDER BY FIELD
 | SUPRIYA  | 1981-07-19 | Sunday    |
 +----------+------------+-----------+
 
-Q8) Display details of orders received in the year 1986. 
+Q8)
+Display details of orders received in the year 1986. 
 QUERY=> SELECT * FROM ORD WHERE YEAR(ORDERDATE)=1986;
 
 +-------+------------+----------+--------+------------+----------------+------------+------------+---------+
