@@ -62,8 +62,7 @@ query=>select * from emp;
 |  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
 |  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
 +-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
-
-  
+ 
 Q3)
 Print the name of employees.
 query=>SELECT ENAME FROM EMP;
@@ -102,8 +101,6 @@ query=>SELECT ENAME FROM EMP;
 | SANGITA  |
 | SUPRIYA  |
 +----------+
-
-
 
 Q4)
 Retrieve the list of names and jobs of employees.
