@@ -48,6 +48,7 @@ query=> select ename,job,hiredate from emp where hiredate between '1981-02-01'an
 | BLAKE | MANAGER  | 1981-05-01 |
 +-------+----------+------------+
 
+
 Q2)
 Display the Name and Hiredate of every Employee who was hired in 1982.
 query=> select ename ,hiredate from emp where year (hiredate)=1982;
@@ -61,6 +62,7 @@ query=> select ename ,hiredate from emp where year (hiredate)=1982;
 | ALEX    | 1982-01-24 |
 +---------+------------+
 
+
 Q3)
 Write a query to display the current date. Label the column as Current Date.
 query=>SELECT CURRENT_DATE AS "Today Date";
@@ -70,6 +72,7 @@ query=>SELECT CURRENT_DATE AS "Today Date";
 +--------------+
 | 2026-04-17   |
 +--------------+
+
 
 Q4)
 Display the Employee’s Name, Hiredate, Salary and Review Date, which is first Monday after six months of service.
