@@ -28,6 +28,7 @@ QUERY=>SELECT ENAME FROM EMP WHERE SAL>=3000;
 | HOFFMAN |
 +---------+
 
+
 Q3)
 List all employees having ‘A’ as second letter in their names.
 QUERY=>SELECT ENAME FROM EMP WHERE ENAME LIKE'_A%';
@@ -44,6 +45,7 @@ QUERY=>SELECT ENAME FROM EMP WHERE ENAME LIKE'_A%';
 | NATASHA |
 | SANGITA |
 +---------+
+
 
 Q4)
 List the Employee Number, Name, Hire Date and Job Title of the Employees in the Department 10.
