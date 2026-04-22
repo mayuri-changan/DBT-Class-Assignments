@@ -271,7 +271,7 @@ Display the Name, Job and Dept No. of all the Employees who either work in Depar
 QUERY=>  SELECT ENAME,EMPNO,JOB,DEPTNO AS"DEPT BETWEEN (30,40)" FROM EMP WHERE DEPTNO IN(30,50);
 
 +----------+-------+---------------------+----------------------+
-| ENAME    | EMPNO | JOB                 | DEPT BETWEEN (30,40) |
+| ENAME    | EMPNO | JOB                 | DEPT BETWEEN (30,50) |
 +----------+-------+---------------------+----------------------+
 | GITA     |  6001 | Compliance officers |                   30 |
 | VRUSHALI |  6129 | Compliance officers |                   50 |
