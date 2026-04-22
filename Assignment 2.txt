@@ -1,6 +1,7 @@
 Q1)
 Display the Employee Name, Job, and Start Date of Employees hired from February 1981 to May 1981.
 query=> select ename,job,hiredate from emp;
+
 +----------+---------------------+------------+
 | ename    | job                 | hiredate   |
 +----------+---------------------+------------+
