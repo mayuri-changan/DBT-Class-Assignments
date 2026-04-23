@@ -307,3 +307,338 @@ QUERY=>SELECT ENAME,EMPNO,DEPTNO,SAL,JOB FROM EMP WHERE(JOB='Clerk' OR JOB='MANA
 | NATASHA |  8433 |     30 | 1750 | CLERK   |
 +---------+-------+--------+------+---------+
 
+Q16)
+Display the Name, Annual Salary and Commission as “Commission Earned” of all employees whose monthly
+salary is greater than their Commission. The output should be in decreasing order of salary. If two or more
+employees have same salary, then sort them by name within the highest order of salary.
+QUERY=> SELECT ENAME AS"NAME",EMPNO AS"EMP CODE",(SAL*12)+IFNULL(COMM,0) AS"ANNUAL SAL"FROM EMP WHERE SAL>IFNULL(COMM,0) ORDER BY SAL DESC,ENAME ASC;
+
++----------+----------+------------+
+| NAME     | EMP CODE | ANNUAL SAL |
++----------+----------+------------+
+| FRED     |     7840 |      60000 |
+| KING     |     7839 |      60000 |
+| HOFFMAN  |     7919 |      49800 |
+| AARAV    |     7415 |      40200 |
+| FORD     |     7902 |      36000 |
+| SCOTT    |     7788 |      36000 |
+| JONES    |     7566 |      35700 |
+| BLAKE    |     7698 |      34200 |
+| CLARK    |     7782 |      29400 |
+| Ruhan    |     7888 |      24000 |
+| BANDISH  |     6781 |      21000 |
+| GITA     |     6001 |      21000 |
+| NATASHA  |     8433 |      21000 |
+| SANGITA  |     9400 |      21000 |
+| SHARMIN  |     6473 |      21000 |
+| SUPRIYA  |     9473 |      21000 |
+| THOMAS   |     7421 |      21000 |
+| VRUSHALI |     6129 |      21000 |
+| ALLEN    |     7499 |      19500 |
+| TURNER   |     7844 |      18000 |
+| ALEX     |     7949 |      15500 |
+| WARD     |     7521 |      15500 |
+| ADAMS    |     7876 |      13200 |
+| Neel     |     7889 |      12000 |
+| JAMES    |     7900 |      11400 |
+| SMITH    |     7369 |       9600 |
++----------+----------+------------+
+
+Q17)
+Display the Name and Job of sales executives or managers whose names end with the letter ‘S’.
+QUERY=>SELECT EMPNO,ENAME,JOB FROM EMP WHERE(JOB='SALESMAN' OR JOB='MANAGER')AND ENAME LIKE '%S';
+
++-------+-------+----------+
+| EMPNO | ENAME | JOB      |
++-------+-------+----------+
+|  7566 | JONES | MANAGER  |
+|  7920 | GRASS | SALESMAN |
++-------+-------+----------+
+
+
+Q18)
+Display all the Names of the Employees whose Salary is either more than 1000 but not more than 2200.
+QUERY=>SELECT ENAME,SAL FROM EMP WHERE SAL BETWEEN 1000 AND 3200;
+
+
++----------+------+
+| ENAME    | SAL  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| THOMAS   | 1750 |
+| ALLEN    | 1600 |
+| WARD     | 1250 |
+| JONES    | 2975 |
+| MARTIN   | 1250 |
+| BLAKE    | 2850 |
+| CLARK    | 2450 |
+| SCOTT    | 3000 |
+| TURNER   | 1500 |
+| ADAMS    | 1100 |
+| Ruhan    | 2000 |
+| Neel     | 1000 |
+| FORD     | 3000 |
+| GRASS    | 2575 |
+| MILLER   | 1300 |
+| AARUSH   | 1350 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SUPRIYA  | 1750 |
++----------+------+
+
+
+
+Q19)
+Select Name & Salary of employees who are clerks.
+QUERY=>SELECT ENAME,SAL,JOB FROM EMP WHERE JOB="CLERK";
+
++---------+------+-------+
+| ENAME   | SAL  | JOB   |
++---------+------+-------+
+| SMITH   |  800 | CLERK |
+| AARAV   | 3350 | CLERK |
+| THOMAS  | 1750 | CLERK |
+| ADAMS   | 1100 | CLERK |
+| JAMES   |  950 | CLERK |
+| MILLER  | 1300 | CLERK |
+| NATASHA | 1750 | CLERK |
++---------+------+-------+
+
+
+
+Q20)
+List the Department Number and Names of all Employees having Salary less than 2500.
+QUERY=>SELECT ENAME,DEPTNO,SAL FROM EMP WHERE SAL<2500;
+
++----------+--------+------+
+| ENAME    | DEPTNO | SAL  |
++----------+--------+------+
+| GITA     |     30 | 1750 |
+| VRUSHALI |     50 | 1750 |
+| SHARMIN  |     20 | 1750 |
+| BANDISH  |     20 | 1750 |
+| SMITH    |     20 |  800 |
+| THOMAS   |     10 | 1750 |
+| ALLEN    |     30 | 1600 |
+| WARD     |     30 | 1250 |
+| MARTIN   |     30 | 1250 |
+| CLARK    |     10 | 2450 |
+| TURNER   |     30 | 1500 |
+| ADAMS    |     20 | 1100 |
+| Ruhan    |     60 | 2000 |
+| Neel     |     60 | 1000 |
+| JAMES    |     30 |  950 |
+| MILLER   |     10 | 1300 |
+| AARUSH   |     30 | 1350 |
+| ALEX     |     30 | 1250 |
+| NATASHA  |     30 | 1750 |
+| SANGITA  |     50 | 1750 |
+| SUPRIYA  |     50 | 1750 |
++----------+--------+------+
+
+
+
+Q21)
+List the Employee Number and the Name of the President.
+QUERY=>SELECT ENAME,EMPNO,JOB FROM EMP WHERE JOB="President";
+
+
++-------+-------+-----------+
+| ENAME | EMPNO | JOB       |
++-------+-------+-----------+
+| KING  |  7839 | PRESIDENT |
++-------+-------+-----------+
+
+Q22)
+Display Names whose job is either Clerk or Analyst or Salesman.
+query=>select ENAME,EMPNO ,JOB FROM EMP WHERE JOB='CLERK' OR JOB='ANALYST'OR JOB='SALESMAN';
+
+
++---------+-------+----------+
+| ENAME   | EMPNO | JOB      |
++---------+-------+----------+
+| SMITH   |  7369 | CLERK    |
+| AARAV   |  7415 | CLERK    |
+| THOMAS  |  7421 | CLERK    |
+| ALLEN   |  7499 | SALESMAN |
+| WARD    |  7521 | SALESMAN |
+| MARTIN  |  7654 | SALESMAN |
+| SCOTT   |  7788 | ANALYST  |
+| TURNER  |  7844 | SALESMAN |
+| ADAMS   |  7876 | CLERK    |
+| JAMES   |  7900 | CLERK    |
+| FORD    |  7902 | ANALYST  |
+| GRASS   |  7920 | SALESMAN |
+| MILLER  |  7934 | CLERK    |
+| AARUSH  |  7945 | SALESMAN |
+| NATASHA |  8433 | CLERK    |
+| SUPRIYA |  9473 | ANALYST  |
++---------+-------+----------+
+
+
+
+Q23)
+List the Employees whose names start with ‘B’ or ‘M’
+QUERY=>SELECT ENAME FROM EMP WHERE ENAME LIKE'B%'OR ENAME LIKE 'M%';
+
+
++---------+
+| ENAME   |
++---------+
+| BANDISH |
+| MARTIN  |
+| BLAKE   |
+| MILLER  |
++---------+
+
+
+
+Q24)Give a list of Employees sorted in alphabetic order of Names.
+QUERY=>SELECT ENAME FROM EMP ORDER BY ENAME ASC;
+
+
++----------+
+| ENAME    |
++----------+
+| AARAV    |
+| AARUSH   |
+| ADAMS    |
+| ALEX     |
+| ALLEN    |
+| BANDISH  |
+| BLAKE    |
+| CLARK    |
+| FORD     |
+| FRED     |
+| GITA     |
+| GRASS    |
+| HOFFMAN  |
+| JAMES    |
+| JONES    |
+| KING     |
+| MARTIN   |
+| MILLER   |
+| NATASHA  |
+| Neel     |
+| Ruhan    |
+| SANGITA  |
+| SCOTT    |
+| SHARMIN  |
+| SMITH    |
+| SUPRIYA  |
+| THOMAS   |
+| TURNER   |
+| VRUSHALI |
+| WARD     |
++----------+
+
+
+Q25)
+Find out details of Employees where Commission is greater than 5% of the Salary.
+QUERY=>SELECT *FROM EMP WHERE IFNULL(COMM, 0) > SAL * 0.05;
+
+
++-------+--------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME  | GENDER | JOB      | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | is ACTIVE |
++-------+--------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7499 | ALLEN  | M      | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD   | M      | SALESMAN | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7654 | MARTIN | M      | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7920 | GRASS  | M      | SALESMAN | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER | M      | CLERK    | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH | M      | SALESMAN | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX   | M      | MANAGER  | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
++-------+--------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+
+
+
+Q26)
+Create query to display the Employee Name and Department Number for employ NO 7566.
+QUERY=>SELECT ENAME, DEPTNO FROM EMP WHERE EMPNO = 7566;
+
++-------+--------+
+| ENAME | DEPTNO |
++-------+--------+
+| JONES |     20 |
++-------+--------+
+
+
+Q27)
+List the Name and Salary of Employees who earn more than $1500 and are in Department 10 or 30. Label the
+columns NAME and Monthly Salary, respectively.
+QUERY=>SELECT ENAME AS "NAME",SAL AS "Monthly Salary" FROM EMPWHERE SAL > 1500 AND DEPTNO IN (10, 30);
+
++---------+----------------+
+| NAME    | Monthly Salary |
++---------+----------------+
+| GITA    |           1750 |
+| AARAV   |           3350 |
+| THOMAS  |           1750 |
+| ALLEN   |           1600 |
+| BLAKE   |           2850 |
+| CLARK   |           2450 |
+| KING    |           5000 |
+| HOFFMAN |           4150 |
+| GRASS   |           2575 |
+| NATASHA |           1750 |
++---------+----------------+
+
+
+Q28)
+Display the Name, Salary and Commission for all Employees who earn Commission. Sort data in descending
+order of Salary and Commission.
+QUERY=>SELECT ENAME AS"NAME OF EMP",SAL,COMM AS "COMMISION" FROM EMP WHERE COMM IS NOT NULL ORDER BY SAL DESC,COMM DESC;
+
+
++-------------+------+-----------+
+| NAME OF EMP | SAL  | COMMISION |
++-------------+------+-----------+
+| GRASS       | 2575 |      2700 |
+| ALLEN       | 1600 |       300 |
+| TURNER      | 1500 |         0 |
+| AARUSH      | 1350 |      2700 |
+| MILLER      | 1300 |      1300 |
+| MARTIN      | 1250 |      1400 |
+| WARD        | 1250 |       500 |
+| ALEX        | 1250 |       500 |
++-------------+------+-----------+
+
+
+Q29)
+Display the Names of all Employees with the third letter of their Name as an “A”.
+QUERY=> SELECT EMPNO AS "EMP CODE",ENAME AS"NAME" FROM EMP WHERE ENAME LIKE '__A%';
+
++----------+---------+
+| EMP CODE | NAME    |
++----------+---------+
+|     6473 | SHARMIN |
+|     7698 | BLAKE   |
+|     7782 | CLARK   |
+|     7876 | ADAMS   |
+|     7920 | GRASS   |
++----------+---------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
