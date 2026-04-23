@@ -1,0 +1,60 @@
+Q1)
+Count total no. of employees.
+QUERY=>SELECT COUNT(*) AS "TOTAL EMPLOYEES"FROM EMP;
+
++-----------------+
+| TOTAL EMPLOYEES |
++-----------------+
+|              30 |
++-----------------+
+
+Q2)
+Determine the maximum and minimum salary.
+QUERY=>SELECT MAX(SAL) AS "MAXIMUM SALARY",MIN(SAL) AS"MINIMUM SALARY" FROM EMP;
+
++----------------+----------------+
+| MAXIMUM SALARY | MINIMUM SALARY |
++----------------+----------------+
+|           5000 |            800 |
++----------------+----------------+
+
+
+Q3)
+Display the count of employees having salary greater than 3000.
+QUERY=>SELECT COUNT(*)AS "SAL>3000" FROM EMP WHERE SAL>3000;
+
++----------+
+| SAL>3000 |
++----------+
+|        4 |
++----------+
+
+Q4)
+Print department wise count of employees.
+QUERY=>SELECT DEPTNO ,COUNT(*) AS"EMP COUNT" FROM EMP GROUP BY DEPTNO;
+
++--------+-----------+
+| DEPTNO | EMP COUNT |
++--------+-----------+
+|     10 |         5 |
+|     20 |         8 |
+|     30 |        12 |
+|     50 |         3 |
+|     60 |         2 |
++--------+-----------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
