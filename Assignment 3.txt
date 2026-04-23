@@ -622,6 +622,18 @@ QUERY=> SELECT EMPNO AS "EMP CODE",ENAME AS"NAME" FROM EMP WHERE ENAME LIKE '__A
 |     7920 | GRASS   |
 +----------+---------+
 
+Q30)
+Display the name of all Employees that have ‘LA’ in the name and are in department 30,10 or their manager
+is 7839.
+QUERY=>SELECT ENAME,DEPTNO,JOB FROM EMP WHERE ENAME LIKE'%LA%'AND (DEPTNO=30 OR DEPTNO =10 OR MGR=7839);
+
++-------+--------+---------+
+| ENAME | DEPTNO | JOB     |
++-------+--------+---------+
+| BLAKE |     30 | MANAGER |
+| CLARK |     10 | MANAGER |
++-------+--------+---------+
+
 
 
 
