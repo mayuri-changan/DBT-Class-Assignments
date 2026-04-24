@@ -96,13 +96,8 @@ NOTE:END WITH LETTER B IS NOT GIVEN IN TABLE.
 
 Q7)
 Display the details of the employees who have joined on 1981-02-20.
-QUERY=>SELECT * FROM EMP WHERE HIREDATE='1981-02-20';
-
-+-------+-------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
-| EMPNO | ENAME | GENDER | JOB      | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | is ACTIVE |
-+-------+-------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
-|  7499 | ALLEN | M      | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
-+-------+-------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+QUERY=> SELECT * FROM EMP WHERE HIREDATE='1981-12-21';
+Empty set (0.01 sec)
 
 
 Q8)
@@ -197,8 +192,85 @@ QUERY=>SELECT EMPNO,ENAME,DEPTNO AS"DESCENDING" FROM EMP ORDER BY DEPTNO DESC;
 |  7934 | MILLER   |         10 |
 +-------+----------+------------+
 
-
 Q12)
+Display the details of the Employees who earn an Annual salary of more than 25000. Sort the records in the
+descending order of Salary.
+QUERY=>  SELECT EMPNO AS"EMPLOYEE CODE",ENAME AS "NAME",JOB, (SAL*12)+IFNULL(COMM,0) AS"ANNUALSAL>25000"FROM EMP WHERE (SAL*12)+IFNULL(COMM,0)>25000 ORDER BY (SAL*12)+IFNULL(COMM,0)DESC;
+
++---------------+---------+----------------+-----------------+
+| EMPLOYEE CODE | NAME    | JOB            | ANNUALSAL>25000 |
++---------------+---------+----------------+-----------------+
+|          7839 | KING    | PRESIDENT      |           60000 |
+|          7840 | FRED    | vice PRESIDENT |           60000 |
+|          7919 | HOFFMAN | MANAGER        |           49800 |
+|          7415 | AARAV   | CLERK          |           40200 |
+|          7788 | SCOTT   | ANALYST        |           36000 |
+|          7902 | FORD    | ANALYST        |           36000 |
+|          7566 | JONES   | MANAGER        |           35700 |
+|          7698 | BLAKE   | MANAGER        |           34200 |
+|          7920 | GRASS   | SALESMAN       |           33600 |
+|          7782 | CLARK   | MANAGER        |           29400 |
++---------------+---------+----------------+-----------------+
+
+Q13)
+Display the names of Employees whose names contain the character “F”.
+QUERY=>SELECT ENAME,GENDER FROM EMP WHERE GENDER="F";
+
++----------+--------+
+| ENAME    | GENDER |
++----------+--------+
+| GITA     | F      |
+| VRUSHALI | F      |
+| SHARMIN  | F      |
+| BANDISH  | F      |
+| NATASHA  | F      |
+| SANGITA  | F      |
+| SUPRIYA  | F      |
++----------+--------+
+
+
+Q14)
+Display the Names and Numbers of all Departments in the descending order of the Department Names.
+QUERY=>SELECT EMPNO,ENAME,DEPTNO AS"DESCENDING" FROM EMP ORDER BY DEPTNO DESC;
+
++-------+----------+------------+
+| EMPNO | ENAME    | DESCENDING |
++-------+----------+------------+
+|  7888 | Ruhan    |         60 |
+|  7889 | Neel     |         60 |
+|  6129 | VRUSHALI |         50 |
+|  9400 | SANGITA  |         50 |
+|  9473 | SUPRIYA  |         50 |
+|  6001 | GITA     |         30 |
+|  7499 | ALLEN    |         30 |
+|  7521 | WARD     |         30 |
+|  7654 | MARTIN   |         30 |
+|  7698 | BLAKE    |         30 |
+|  7844 | TURNER   |         30 |
+|  7900 | JAMES    |         30 |
+|  7919 | HOFFMAN  |         30 |
+|  7920 | GRASS    |         30 |
+|  7945 | AARUSH   |         30 |
+|  7949 | ALEX     |         30 |
+|  8433 | NATASHA  |         30 |
+|  6473 | SHARMIN  |         20 |
+|  6781 | BANDISH  |         20 |
+|  7369 | SMITH    |         20 |
+|  7566 | JONES    |         20 |
+|  7788 | SCOTT    |         20 |
+|  7840 | FRED     |         20 |
+|  7876 | ADAMS    |         20 |
+|  7902 | FORD     |         20 |
+|  7415 | AARAV    |         10 |
+|  7421 | THOMAS   |         10 |
+|  7782 | CLARK    |         10 |
+|  7839 | KING     |         10 |
+|  7934 | MILLER   |         10 |
++-------+----------+------------+
+
+
+
+Q15)
 Display the Name, Employee Number, Designation and Salary of those Employees who earn a monthly salary
 of not less than 1000 and not more than 2000.
 QUERY=>SELECT EMPNO,ENAME,JOB,SAL AS"SAL BETWEEN 1000 AND 2000" FROM EMP WHERE SAL BETWEEN 1000 AND 2000;
@@ -226,7 +298,7 @@ QUERY=>SELECT EMPNO,ENAME,JOB,SAL AS"SAL BETWEEN 1000 AND 2000" FROM EMP WHERE S
 |  9473 | SUPRIYA  | ANALYST             |                      1750 |
 +-------+----------+---------------------+---------------------------+
 
-Q13)
+Q16)
 Find out the Bonus (Bonus 1.1% of Annual Salary) that every person will receive at the end of the year.
 QUERY=>SELECT ENAME, SAL, COMM, (SAL * 12) + IFNULL(COMM, 0) AS "Annual Salary", ((SAL * 12) + IFNULL(COMM, 0)) * 0.011 AS "Bonus" FROM EMP;
 
@@ -265,7 +337,7 @@ QUERY=>SELECT ENAME, SAL, COMM, (SAL * 12) + IFNULL(COMM, 0) AS "Annual Salary",
 | SUPRIYA  | 1750 | NULL |         21000 | 231.000 |
 +----------+------+------+---------------+---------+
 
-Q14)
+Q17)
 Display the Name, Job and Dept No. of all the Employees who either work in Department 30 or in Department
 40.
 QUERY=>  SELECT ENAME,EMPNO,JOB,DEPTNO AS"DEPT BETWEEN (30,40)" FROM EMP WHERE DEPTNO IN(30,50);
@@ -291,7 +363,7 @@ QUERY=>  SELECT ENAME,EMPNO,JOB,DEPTNO AS"DEPT BETWEEN (30,40)" FROM EMP WHERE D
 +----------+-------+---------------------+----------------------+
 
 
-Q15)
+Q18)
 Display the Employee Number, Name for Clerks and Managers who’s Salary is more than 1500.
 QUERY=>SELECT ENAME,EMPNO,DEPTNO,SAL,JOB FROM EMP WHERE(JOB='Clerk' OR JOB='MANAGER') AND SAL>1500;
 
@@ -307,7 +379,7 @@ QUERY=>SELECT ENAME,EMPNO,DEPTNO,SAL,JOB FROM EMP WHERE(JOB='Clerk' OR JOB='MANA
 | NATASHA |  8433 |     30 | 1750 | CLERK   |
 +---------+-------+--------+------+---------+
 
-Q16)
+Q19)
 Display the Name, Annual Salary and Commission as “Commission Earned” of all employees whose monthly
 salary is greater than their Commission. The output should be in decreasing order of salary. If two or more
 employees have same salary, then sort them by name within the highest order of salary.
@@ -344,7 +416,7 @@ QUERY=> SELECT ENAME AS"NAME",EMPNO AS"EMP CODE",(SAL*12)+IFNULL(COMM,0) AS"ANNU
 | SMITH    |     7369 |       9600 |
 +----------+----------+------------+
 
-Q17)
+Q20)
 Display the Name and Job of sales executives or managers whose names end with the letter ‘S’.
 QUERY=>SELECT EMPNO,ENAME,JOB FROM EMP WHERE(JOB='SALESMAN' OR JOB='MANAGER')AND ENAME LIKE '%S';
 
@@ -356,7 +428,7 @@ QUERY=>SELECT EMPNO,ENAME,JOB FROM EMP WHERE(JOB='SALESMAN' OR JOB='MANAGER')AND
 +-------+-------+----------+
 
 
-Q18)
+Q21)
 Display all the Names of the Employees whose Salary is either more than 1000 but not more than 2200.
 QUERY=>SELECT ENAME,SAL FROM EMP WHERE SAL BETWEEN 1000 AND 3200;
 
@@ -392,7 +464,7 @@ QUERY=>SELECT ENAME,SAL FROM EMP WHERE SAL BETWEEN 1000 AND 3200;
 
 
 
-Q19)
+Q22)
 Select Name & Salary of employees who are clerks.
 QUERY=>SELECT ENAME,SAL,JOB FROM EMP WHERE JOB="CLERK";
 
@@ -410,7 +482,7 @@ QUERY=>SELECT ENAME,SAL,JOB FROM EMP WHERE JOB="CLERK";
 
 
 
-Q20)
+Q23)
 List the Department Number and Names of all Employees having Salary less than 2500.
 QUERY=>SELECT ENAME,DEPTNO,SAL FROM EMP WHERE SAL<2500;
 
@@ -442,7 +514,7 @@ QUERY=>SELECT ENAME,DEPTNO,SAL FROM EMP WHERE SAL<2500;
 
 
 
-Q21)
+Q24)
 List the Employee Number and the Name of the President.
 QUERY=>SELECT ENAME,EMPNO,JOB FROM EMP WHERE JOB="President";
 
@@ -453,7 +525,7 @@ QUERY=>SELECT ENAME,EMPNO,JOB FROM EMP WHERE JOB="President";
 | KING  |  7839 | PRESIDENT |
 +-------+-------+-----------+
 
-Q22)
+Q25)
 Display Names whose job is either Clerk or Analyst or Salesman.
 query=>select ENAME,EMPNO ,JOB FROM EMP WHERE JOB='CLERK' OR JOB='ANALYST'OR JOB='SALESMAN';
 
@@ -481,7 +553,7 @@ query=>select ENAME,EMPNO ,JOB FROM EMP WHERE JOB='CLERK' OR JOB='ANALYST'OR JOB
 
 
 
-Q23)
+Q26)
 List the Employees whose names start with ‘B’ or ‘M’
 QUERY=>SELECT ENAME FROM EMP WHERE ENAME LIKE'B%'OR ENAME LIKE 'M%';
 
@@ -497,7 +569,7 @@ QUERY=>SELECT ENAME FROM EMP WHERE ENAME LIKE'B%'OR ENAME LIKE 'M%';
 
 
 
-Q24)Give a list of Employees sorted in alphabetic order of Names.
+Q27)Give a list of Employees sorted in alphabetic order of Names.
 QUERY=>SELECT ENAME FROM EMP ORDER BY ENAME ASC;
 
 
@@ -537,7 +609,7 @@ QUERY=>SELECT ENAME FROM EMP ORDER BY ENAME ASC;
 +----------+
 
 
-Q25)
+Q28)
 Find out details of Employees where Commission is greater than 5% of the Salary.
 QUERY=>SELECT *FROM EMP WHERE IFNULL(COMM, 0) > SAL * 0.05;
 
@@ -556,7 +628,7 @@ QUERY=>SELECT *FROM EMP WHERE IFNULL(COMM, 0) > SAL * 0.05;
 
 
 
-Q26)
+Q29)
 Create query to display the Employee Name and Department Number for employ NO 7566.
 QUERY=>SELECT ENAME, DEPTNO FROM EMP WHERE EMPNO = 7566;
 
@@ -567,7 +639,7 @@ QUERY=>SELECT ENAME, DEPTNO FROM EMP WHERE EMPNO = 7566;
 +-------+--------+
 
 
-Q27)
+Q30)
 List the Name and Salary of Employees who earn more than $1500 and are in Department 10 or 30. Label the
 columns NAME and Monthly Salary, respectively.
 QUERY=>SELECT ENAME AS "NAME",SAL AS "Monthly Salary" FROM EMPWHERE SAL > 1500 AND DEPTNO IN (10, 30);
@@ -588,7 +660,7 @@ QUERY=>SELECT ENAME AS "NAME",SAL AS "Monthly Salary" FROM EMPWHERE SAL > 1500 A
 +---------+----------------+
 
 
-Q28)
+Q31)
 Display the Name, Salary and Commission for all Employees who earn Commission. Sort data in descending
 order of Salary and Commission.
 QUERY=>SELECT ENAME AS"NAME OF EMP",SAL,COMM AS "COMMISION" FROM EMP WHERE COMM IS NOT NULL ORDER BY SAL DESC,COMM DESC;
@@ -608,7 +680,7 @@ QUERY=>SELECT ENAME AS"NAME OF EMP",SAL,COMM AS "COMMISION" FROM EMP WHERE COMM 
 +-------------+------+-----------+
 
 
-Q29)
+Q32)
 Display the Names of all Employees with the third letter of their Name as an “A”.
 QUERY=> SELECT EMPNO AS "EMP CODE",ENAME AS"NAME" FROM EMP WHERE ENAME LIKE '__A%';
 
@@ -623,17 +695,443 @@ QUERY=> SELECT EMPNO AS "EMP CODE",ENAME AS"NAME" FROM EMP WHERE ENAME LIKE '__A
 +----------+---------+
 
 
-Q30)
-Display the name of all Employees that have ‘LA’ in the name and are in department 30,10 or their manager
-is 7839.
-QUERY=>SELECT ENAME,DEPTNO,JOB FROM EMP WHERE ENAME LIKE'%LA%'AND (DEPTNO=30 OR DEPTNO =10 OR MGR=7839);
+Q33)
+Display the name of all Employees that have two ‘LS’ in the name and are in department 30 or their manager
+is 7782.
+QUERY=>SELECT ENAME FROM EMP WHERE ENAME LIKE '%LS%LS%' AND (DEPTNO = 30 OR MGR = 7782);
 
-+-------+--------+---------+
-| ENAME | DEPTNO | JOB     |
-+-------+--------+---------+
-| BLAKE |     30 | MANAGER |
-| CLARK |     10 | MANAGER |
-+-------+--------+---------+
+Empty set (0.01 sec)
+
+
+Q34)
+Display Name, Job & Sal for all Emp whose job is Clerk or Analyst and their Sal is not equal to 1000, 3000 &
+5000.
+QUERY=>SELECT JOB,ENAME,SAL FROM EMP WHERE (JOB='CLERK' OR JOB='ANALYST')AND SAL NOT  IN(1000,3000,5000);
+
++---------+---------+------+
+| JOB     | ENAME   | SAL  |
++---------+---------+------+
+| CLERK   | SMITH   |  800 |
+| CLERK   | AARAV   | 3350 |
+| CLERK   | THOMAS  | 1750 |
+| CLERK   | ADAMS   | 1100 |
+| CLERK   | JAMES   |  950 |
+| CLERK   | MILLER  | 1300 |
+| CLERK   | NATASHA | 1750 |
+| ANALYST | SUPRIYA | 1750 |
++---------+---------+------+
+
+Q35)
+Display the Name, Sal & Comm for all Employees whose Comm amount is greater than their Sal increased by
+10%.
+QUERK=>SELECT ENAME,EMPNO ,SAL,JOB,COMM FROM EMP WHERE COMM>SAL*1.10;
+
++--------+-------+------+----------+------+
+| ENAME  | EMPNO | SAL  | JOB      | COMM |
++--------+-------+------+----------+------+
+| MARTIN |  7654 | 1250 | SALESMAN | 1400 |
+| AARUSH |  7945 | 1350 | SALESMAN | 2700 |
++--------+-------+------+----------+------+
+
+Q36)
+Display Employee Number, Name, Gross Salary (Bonus + Salary*12 + Commission) for all those Employees
+who belong to Department Number 20 or 30 in the ascending order of Employee Numbers.
+QUERY=> SELECT EMPNO,ENAME,(SAL*12+IFNULL(COMM,0))AS GROSS_SAL FROM EMP WHERE DEPTNO IN(20,30) ORDER BY EMPNO ASC;
+
++-------+---------+-----------+
+| EMPNO | ENAME   | GROSS_SAL |
++-------+---------+-----------+
+|  6001 | GITA    |     21000 |
+|  6473 | SHARMIN |     21000 |
+|  6781 | BANDISH |     21000 |
+|  7369 | SMITH   |      9600 |
+|  7499 | ALLEN   |     19500 |
+|  7521 | WARD    |     15500 |
+|  7566 | JONES   |     35700 |
+|  7654 | MARTIN  |     16400 |
+|  7698 | BLAKE   |     34200 |
+|  7788 | SCOTT   |     36000 |
+|  7840 | FRED    |     60000 |
+|  7844 | TURNER  |     18000 |
+|  7876 | ADAMS   |     13200 |
+|  7900 | JAMES   |     11400 |
+|  7902 | FORD    |     36000 |
+|  7919 | HOFFMAN |     49800 |
+|  7920 | GRASS   |     33600 |
+|  7945 | AARUSH  |     18900 |
+|  7949 | ALEX    |     15500 |
+|  8433 | NATASHA |     21000 |
++-------+---------+-----------+
+
+
+Q37)
+Display the Employee Number, Name, Salary, and Salary Increase by 15% expressed as a whole number.
+Label the column New Salary.
+QUERY=>SELECT EMPNO, ENAME, JOB,SAL,ROUND(SAL*1.15)AS "NEW SAL" FROM EMP;
+
++-------+----------+---------------------+------+---------+
+| EMPNO | ENAME    | JOB                 | SAL  | NEW SAL |
++-------+----------+---------------------+------+---------+
+|  6001 | GITA     | Compliance officers | 1750 |    2013 |
+|  6129 | VRUSHALI | Compliance officers | 1750 |    2013 |
+|  6473 | SHARMIN  | Public Relation     | 1750 |    2013 |
+|  6781 | BANDISH  | Public Relation     | 1750 |    2013 |
+|  7369 | SMITH    | CLERK               |  800 |     920 |
+|  7415 | AARAV    | CLERK               | 3350 |    3853 |
+|  7421 | THOMAS   | CLERK               | 1750 |    2013 |
+|  7499 | ALLEN    | SALESMAN            | 1600 |    1840 |
+|  7521 | WARD     | SALESMAN            | 1250 |    1438 |
+|  7566 | JONES    | MANAGER             | 2975 |    3421 |
+|  7654 | MARTIN   | SALESMAN            | 1250 |    1438 |
+|  7698 | BLAKE    | MANAGER             | 2850 |    3278 |
+|  7782 | CLARK    | MANAGER             | 2450 |    2818 |
+|  7788 | SCOTT    | ANALYST             | 3000 |    3450 |
+|  7839 | KING     | PRESIDENT           | 5000 |    5750 |
+|  7840 | FRED     | vice PRESIDENT      | 5000 |    5750 |
+|  7844 | TURNER   | SALESMAN            | 1500 |    1725 |
+|  7876 | ADAMS    | CLERK               | 1100 |    1265 |
+|  7888 | Ruhan    | Network             | 2000 |    2300 |
+|  7889 | Neel     | vice PRESIDENT      | 1000 |    1150 |
+|  7900 | JAMES    | CLERK               |  950 |    1093 |
+|  7902 | FORD     | ANALYST             | 3000 |    3450 |
+|  7919 | HOFFMAN  | MANAGER             | 4150 |    4773 |
+|  7920 | GRASS    | SALESMAN            | 2575 |    2961 |
+|  7934 | MILLER   | CLERK               | 1300 |    1495 |
+|  7945 | AARUSH   | SALESMAN            | 1350 |    1553 |
+|  7949 | ALEX     | MANAGER             | 1250 |    1438 |
+|  8433 | NATASHA  | CLERK               | 1750 |    2013 |
+|  9400 | SANGITA  | Compliance officers | 1750 |    2013 |
+|  9473 | SUPRIYA  | ANALYST             | 1750 |    2013 |
++-------+----------+---------------------+------+---------+
+
+Q38)
+Write a query that will display the employees name with the first letter capitalized an other letters
+lowercase and the length of their name, for all employees whose name starts with J, A or M.
+QUERY=> SELECT ENAME,LENGTH(ENAME) AS 'LENGTH OF ENAME 'FROM EMP WHERE ENAME LIKE 'J%'OR ENAME LIKE 'A%' OR ENAME LIKE 'M%';
+
++--------+------------------+
+| ENAME  | LENGTH OF ENAME  |
++--------+------------------+
+| AARAV  |                5 |
+| ALLEN  |                5 |
+| JONES  |                5 |
+| MARTIN |                6 |
+| ADAMS  |                5 |
+| JAMES  |                5 |
+| MILLER |                6 |
+| AARUSH |                6 |
+| ALEX   |                4 |
++--------+------------------+
+
+
+Q39)
+Create a query that will display the Employees name and commission amount. If the employee does not
+earn commission, put “No Commission”.
+QUERY=> SELECT ENAME,IFNULL(COMM,'NO COMMISION')  AS "NO COMMISION" FROM EMP;
+
++----------+--------------+
+| ENAME    | NO COMMISION |
++----------+--------------+
+| GITA     | NO COMMISION |
+| VRUSHALI | NO COMMISION |
+| SHARMIN  | NO COMMISION |
+| BANDISH  | NO COMMISION |
+| SMITH    | NO COMMISION |
+| AARAV    | NO COMMISION |
+| THOMAS   | NO COMMISION |
+| ALLEN    | 300          |
+| WARD     | 500          |
+| JONES    | NO COMMISION |
+| MARTIN   | 1400         |
+| BLAKE    | NO COMMISION |
+| CLARK    | NO COMMISION |
+| SCOTT    | NO COMMISION |
+| KING     | NO COMMISION |
+| FRED     | NO COMMISION |
+| TURNER   | 0            |
+| ADAMS    | NO COMMISION |
+| Ruhan    | NO COMMISION |
+| Neel     | NO COMMISION |
+| JAMES    | NO COMMISION |
+| FORD     | NO COMMISION |
+| HOFFMAN  | NO COMMISION |
+| GRASS    | 2700         |
+| MILLER   | 1300         |
+| AARUSH   | 2700         |
+| ALEX     | 500          |
+| NATASHA  | NO COMMISION |
+| SANGITA  | NO COMMISION |
+| SUPRIYA  | NO COMMISION |
++----------+--------------+
+
+Q40)
+Display Customers Name, Sales Amount approximate Profit Earned (Profit = 8% of Sales Amount) in
+whole numbers.
+QUERY=>SELECT CUSTNAME,AMOUNT ,ROUND(AMOUNT*0.08) AS "PROFIT" FROM SALES;
+
++----------------+----------+--------+
+| CUSTNAME       | AMOUNT   | PROFIT |
++----------------+----------+--------+
+| JOCKSPORTS     |  1703.40 |    136 |
+| JOCKSPORTS     |   485.00 |     39 |
+| JOCKSPORTS     |   292.50 |     23 |
+| JOCKSPORTS     |    50.00 |      4 |
+| JOCKSPORTS     |   350.00 |     28 |
+| JOCKSPORTS     |  2400.00 |    192 |
+| TKB SPORT SHOP |    35.00 |      3 |
+| TKB SPORT SHOP |     8.40 |      1 |
+| TKB SPORT SHOP |    58.00 |      5 |
+| VOLLYRITE      |  3306.00 |    264 |
+| VOLLYRITE      | 16569.00 |   1326 |
+| VOLLYRITE      |  2300.50 |    184 |
+| VOLLYRITE      |  5600.00 |    448 |
+| JUST TENNIS    |   450.00 |     36 |
+| JUST TENNIS    |   140.00 |     11 |
+| JUST TENNIS    |   116.00 |      9 |
+| JUST TENNIS    |    34.00 |      3 |
+| JUST TENNIS    |    24.00 |      2 |
+| EVERY MOUNTAIN |   846.80 |     68 |
+| EVERY MOUNTAIN |    24.00 |      2 |
+| EVERY MOUNTAIN |  3000.00 |    240 |
+| EVERY MOUNTAIN |   810.00 |     65 |
+| EVERY MOUNTAIN |  1500.00 |    120 |
+| EVERY MOUNTAIN |   400.00 |     32 |
+| EVERY MOUNTAIN |   240.00 |     19 |
+| EVERY MOUNTAIN |   340.00 |     27 |
+| K + T SPORTS   |  1750.00 |    140 |
+| K + T SPORTS   |  4500.00 |    360 |
+| K + T SPORTS   |  1400.00 |    112 |
+| K + T SPORTS   |  2800.00 |    224 |
+| K + T SPORTS   | 29000.00 |   2320 |
+| K + T SPORTS   |  2400.00 |    192 |
+| K + T SPORTS   |  2500.00 |    200 |
+| K + T SPORTS   |   340.00 |     27 |
+| K + T SPORTS   |   480.00 |     38 |
+| K + T SPORTS   |  1200.00 |     96 |
+| SHAPE UP       |     2.40 |      0 |
+| SHAPE UP       |   174.00 |     14 |
+| SHAPE UP       |    84.00 |      7 |
+| SHAPE UP       |   440.00 |     35 |
+| WOMENS SPORTS  |   180.00 |     14 |
+| WOMENS SPORTS  |   280.00 |     22 |
+| WOMENS SPORTS  |   250.00 |     20 |
+| NORTH WOODS    |   560.00 |     45 |
+| NORTH WOODS    |  4800.00 |    384 |
+| NORTH WOODS    |   600.00 |     48 |
+| NORTH WOODS    |   440.00 |     35 |
++----------------+----------+--------+
+
+Q41)
+Using the sales table, you need to report the following
+a.Sales for the first quarter of the year of 1999
+b.Sales for the product SP TENNIS RACKET
+QUERY=>SELECT * FROM SALES WHERE YEAR(SALEDATE)=1999 AND MONTH(SALEDATE)IN(1,2,3)AND PRODUCTNAME='SP TENNIS RACKET';
+
+Empty set (0.01 sec)
+
+
+Q42)
+Consider the Customer table. The Credit Limit of all the Customers is increased by 25%. Calculate the
+new Credit Limit and display the same along with the Name, Repid and Credit Limit for all the
+Customers. The following should be implemented in the query result set:
+a. The Credit Limit should be expressed as a whole number, prefixed with a $ symbol.
+b. Total length of the new Credit Limit should be 10.
+c. Names of the Customers should be displayed in the title case.
+QUERY=>SELECT NAME AS "CUSTNAME",CUSTID,REPID,CREDITLIMIT,LPAD(CONCAT('$', ROUND(CREDITLIMIT * 1.25)), 10, ' ') AS "NEW CREDIT LIMIT" FROM CUSTOMER;
+
++-------------------+--------+-------+-------------+------------------+
+| CUSTNAME          | CUSTID | REPID | CREDITLIMIT | NEW CREDIT LIMIT |
++-------------------+--------+-------+-------------+------------------+
+| JOCKSPORTS        |    100 |  7844 |     5000.00 |      $6250       |
+| TKB SPORT SHOP    |    101 |  7521 |    10000.00 |     $12500       |
+| VOLLYRITE         |    102 |  7654 |     7000.00 |      $8750       |
+| JUST TENNIS       |    103 |  7521 |     3000.00 |      $3750       |
+| EVERY MOUNTAIN    |    104 |  7499 |    10000.00 |     $12500       |
+| K + T SPORTS      |    105 |  7844 |     5000.00 |      $6250       |
+| SHAPE UP          |    106 |  7521 |     6000.00 |      $7500       |
+| WOMENS SPORTS     |    107 |  7499 |    10000.00 |     $12500       |
+| NORTH WOODS       |    108 |  7844 |     8000.00 |     $10000       |
+| Saleel Sports     |    109 |  2002 |     8000.00 |     $10000       |
+| Raj Sports Center |    110 |  2342 |    25000.00 |     $31250       |
+| West WOODS        |    117 |  7870 |     8000.00 |     $10000       |
+| South WOODS       |    118 |  7869 |     8000.00 |     $10000       |
++-------------------+--------+-------+-------------+------------------+
+
+Q43)
+Display the name and the department number of all employees. The department number should be
+displayed in the following manner:
+a. If the department number is 10, display ‘Belongs to Dept. 10’
+b. If 20, display ‘Belongs to the Dept. 20’
+c. Otherwise display ‘Neither 10 nor 20.’
+QUERY=>SELECT ENAME,CASE WHEN DEPTNO=10 THEN 'BELONGS TO DEPT.10' WHEN DEPTNO=20 THEN 'BELONG TO THE DEPT.20' ELSE 'NEITHER 10 NOR 20' END AS DEPARTMENT FROM EMP;
+
++----------+-----------------------+
+| ENAME    | DEPARTMENT            |
++----------+-----------------------+
+| GITA     | NEITHER 10 NOR 20     |
+| VRUSHALI | NEITHER 10 NOR 20     |
+| SHARMIN  | BELONG TO THE DEPT.20 |
+| BANDISH  | BELONG TO THE DEPT.20 |
+| SMITH    | BELONG TO THE DEPT.20 |
+| AARAV    | BELONGS TO DEPT.10    |
+| THOMAS   | BELONGS TO DEPT.10    |
+| ALLEN    | NEITHER 10 NOR 20     |
+| WARD     | NEITHER 10 NOR 20     |
+| JONES    | BELONG TO THE DEPT.20 |
+| MARTIN   | NEITHER 10 NOR 20     |
+| BLAKE    | NEITHER 10 NOR 20     |
+| CLARK    | BELONGS TO DEPT.10    |
+| SCOTT    | BELONG TO THE DEPT.20 |
+| KING     | BELONGS TO DEPT.10    |
+| FRED     | BELONG TO THE DEPT.20 |
+| TURNER   | NEITHER 10 NOR 20     |
+| ADAMS    | BELONG TO THE DEPT.20 |
+| Ruhan    | NEITHER 10 NOR 20     |
+| Neel     | NEITHER 10 NOR 20     |
+| JAMES    | NEITHER 10 NOR 20     |
+| FORD     | BELONG TO THE DEPT.20 |
+| HOFFMAN  | NEITHER 10 NOR 20     |
+| GRASS    | NEITHER 10 NOR 20     |
+| MILLER   | BELONGS TO DEPT.10    |
+| AARUSH   | NEITHER 10 NOR 20     |
+| ALEX     | NEITHER 10 NOR 20     |
+| NATASHA  | NEITHER 10 NOR 20     |
+| SANGITA  | NEITHER 10 NOR 20     |
+| SUPRIYA  | NEITHER 10 NOR 20     |
++----------+-----------------------+
+
+Q44)
+Display the name, first letter of the name (as Abbreviated Name) and the annual compensation for all
+employees. The following issues should be taken care of:
+a. The annual compensation has to be calculated by adding the salary and the commission earned by
+the employee and multiplying the value by 12.
+b. The first letter of the employee name should be in upper case.
+c. If the employee does not earn any commission, the commission values should be taken as 600.
+QUERY=> SELECT ENAME AS"NAME",UPPER(SUBSTR(ENAME,1,1)) AS "ABBREVATED NAME",(SAL+IFNULL(COMM,600))*12 AS "ANNUAL COMPENSATION"FROM EMP;
+
++----------+-----------------+---------------------+
+| NAME     | ABBREVATED NAME | ANNUAL COMPENSATION |
++----------+-----------------+---------------------+
+| GITA     | G               |               28200 |
+| VRUSHALI | V               |               28200 |
+| SHARMIN  | S               |               28200 |
+| BANDISH  | B               |               28200 |
+| SMITH    | S               |               16800 |
+| AARAV    | A               |               47400 |
+| THOMAS   | T               |               28200 |
+| ALLEN    | A               |               22800 |
+| WARD     | W               |               21000 |
+| JONES    | J               |               42900 |
+| MARTIN   | M               |               31800 |
+| BLAKE    | B               |               41400 |
+| CLARK    | C               |               36600 |
+| SCOTT    | S               |               43200 |
+| KING     | K               |               67200 |
+| FRED     | F               |               67200 |
+| TURNER   | T               |               18000 |
+| ADAMS    | A               |               20400 |
+| Ruhan    | R               |               31200 |
+| Neel     | N               |               19200 |
+| JAMES    | J               |               18600 |
+| FORD     | F               |               43200 |
+| HOFFMAN  | H               |               57000 |
+| GRASS    | G               |               63300 |
+| MILLER   | M               |               31200 |
+| AARUSH   | A               |               48600 |
+| ALEX     | A               |               21000 |
+| NATASHA  | N               |               28200 |
+| SANGITA  | S               |               28200 |
+| SUPRIYA  | S               |               28200 |
++----------+-----------------+---------------------+
+
+
+
+
+Q45. Display the Order ID, the Total Value of the Order and the Commission Plan taking into consideration
+
+the following-
+a. If the Commission Plan is A display it as Anonymous
+
+b. If the Commission Plan is B display it as Business
+c. If the Commission Plan is C display it as Casual
+d. If no Commission Plan has been mentioned then display Commission Not Allowed.
+QUERY=>SELECT ORDID,ORDERDATE,TOTAL,CASE WHEN COMMPLAN='A' THEN'ANONYMOUS'WHEN COMMPLAN='B' THEN 'BUSINESS' WHEN COMMPLAN='C' THEN'CASUAL' ELSE 'COMMISSION NOT ALLOWED' END AS "COMMISSION PLAN"FROM ORD;
+
++-------+------------+----------+------------------------+
+| ORDID | ORDERDATE  | TOTAL    | COMMISSION PLAN        |
++-------+------------+----------+------------------------+
+|   601 | 1986-05-01 |     2.40 | ANONYMOUS              |
+|   602 | 1986-06-05 |    56.00 | BUSINESS               |
+|   603 | 1986-06-05 |   224.00 | COMMISSION NOT ALLOWED |
+|   604 | 1986-06-15 |   698.00 | ANONYMOUS              |
+|   606 | 1986-07-14 |     3.40 | ANONYMOUS              |
+|   607 | 1986-07-18 |     5.60 | CASUAL                 |
+|   608 | 1986-07-25 |    35.20 | CASUAL                 |
+|   609 | 1986-08-01 |    97.50 | BUSINESS               |
+|   610 | 1987-01-07 |   101.40 | ANONYMOUS              |
+|   611 | 1987-01-11 |    45.00 | BUSINESS               |
+|   612 | 1987-01-15 |  5860.00 | CASUAL                 |
+|   613 | 1987-02-01 |  6400.00 | COMMISSION NOT ALLOWED |
+|   614 | 1987-02-01 | 23940.00 | COMMISSION NOT ALLOWED |
+|   615 | 1987-02-01 |   710.00 | COMMISSION NOT ALLOWED |
+|   616 | 1987-02-03 |   764.00 | COMMISSION NOT ALLOWED |
+|   617 | 1987-02-05 | 46370.00 | COMMISSION NOT ALLOWED |
+|   618 | 1987-02-15 |  3510.50 | ANONYMOUS              |
+|   619 | 1987-02-22 |  1260.00 | COMMISSION NOT ALLOWED |
+|   620 | 1987-03-12 |  4450.00 | COMMISSION NOT ALLOWED |
+|   621 | 1987-03-15 |   730.00 | ANONYMOUS              |
+|   622 | 1986-12-31 |  1125.00 | ANONYMOUS              |
+|   624 | 1987-01-06 |   189.00 | CASUAL                 |
+|   625 | 1987-01-09 |  1255.00 | COMMISSION NOT ALLOWED |
+|   626 | 1987-01-31 |  1675.00 | COMMISSION NOT ALLOWED |
+|   627 | 1987-02-13 |   250.00 | COMMISSION NOT ALLOWED |
+|   628 | 1987-03-13 |   473.93 | ANONYMOUS              |
+|   629 | 1987-03-14 |   289.99 | ANONYMOUS              |
+|   630 | 1987-02-21 |   362.12 | COMMISSION NOT ALLOWED |
+|   631 | 1987-02-23 |   232.87 | COMMISSION NOT ALLOWED |
+|   632 | 1987-03-13 |   473.93 | ANONYMOUS              |
+|   633 | 1987-03-14 |   289.99 | ANONYMOUS              |
+|   634 | 1987-02-21 |   362.12 | COMMISSION NOT ALLOWED |
+|   635 | 1987-02-23 |   232.87 | COMMISSION NOT ALLOWED |
++-------+------------+----------+------------------------+
+
+
+
+46. List all the employees who are living in ‘BOSTON’.
+QUERY=>SELECT * FROM EMP WHERE LOC="BOSTON";
+ERROR 1054 (42S22): Unknown column 'LOC' in 'where clause'
+
+SELECT DEPTNO FROM DEPT WHERE LOC="BOSTON";
++--------+
+| DEPTNO |
++--------+
+|     40 |
++--------+
+
+
+47. List the names of employees who stay in city whose second letter is ‘A’ or ‘H’.
+QUERY=>
+
+48. List names of employees who are working in ‘SALES’ department.
+QUERY=>SELECT E.* FROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO WHERE D.DNAME = 'SALES';
+
++-------+---------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME   | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+---------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA    | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  7499 | ALLEN   | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD    | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7654 | MARTIN  | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE   | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7844 | TURNER  | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7900 | JAMES   | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7919 | HOFFMAN | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS   | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7945 | AARUSH  | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX    | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
++-------+---------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+
 
 
 
