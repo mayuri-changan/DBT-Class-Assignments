@@ -43,6 +43,102 @@ QUERY=>SELECT DEPTNO ,COUNT(*) AS"EMP COUNT" FROM EMP GROUP BY DEPTNO;
 |     60 |         2 |
 +--------+-----------+
 
+Q5)
+Display employee details who earn maximum and minimum salary.
+QUERY=>SELECT * FROM emp WHERE Sal = (SELECT MAX(Sal) FROM emp) OR Sal = (SELECT MIN(Sal) FROM emp);
+
++-------+-------+--------+----------------+------+------------+------+------+--------+---------+------------+-----------+------------+----------+
+| EMPNO | ENAME | GENDER | JOB            | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD       | PHONE      | is ACTIVE |
++-------+-------+--------+----------------+------+------------+------+------+--------+---------+------------+-----------+------------+----------+
+|  7369 | SMITH | M      | CLERK          | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE    | a12recmpm | 7032300023 |        0 |
+|  7839 | KING  | M      | PRESIDENT      | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING       | r50mpm    | 7132300081 |        1 |
+|  7840 | FRED  | M      | vice PRESIDENT | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE | a12recmpm | NULL       |        1 |
++-------+-------+--------+----------------+------+------------+------+------+--------+---------+------------+-----------+------------+----------+
+
+
+Q6)
+Print jobwise total salary.
+QUERY=>SELECT job, SUM(Sal) AS total salary FROM emp GROUP BY job;
+
++---------------------+--------------+
+| job                 | total salary |
++---------------------+--------------+
+| Compliance officers |         5250 |
+| Public Relation     |         3500 |
+| CLERK               |        11000 |
+| SALESMAN            |         9525 |
+| MANAGER             |        13675 |
+| ANALYST             |         7750 |
+| PRESIDENT           |         5000 |
+| vice PRESIDENT      |         6000 |
+| Network             |         2000 |
++---------------------+--------------+
+
+Q7)
+Print department wise maximum salary.
+QUERY=>SELECT dept no, MAX(Sal) AS max_ salary FROM emp GROUP BY dept no;
+
++--------+------------+
+| deptno | max_salary |
++--------+------------+
+|     10 |       5000 |
+|     20 |       5000 |
+|     30 |       4150 |
+|     50 |       1750 |
+|     60 |       2000 |
++--------+------------+
+
+Q8)
+Print jobwise average salary.
+QUERY=>SELECT job, AVG(Sal) AS avg_ salary FROM emp GROUP BY job;
+
++---------------------+------------+
+| job                 | avg_salary |
++---------------------+------------+
+| Compliance officers |  1750.0000 |
+| Public Relation     |  1750.0000 |
+| CLERK               |  1571.4286 |
+| SALESMAN            |  1587.5000 |
+| MANAGER             |  2735.0000 |
+| ANALYST             |  2583.3333 |
+| PRESIDENT           |  5000.0000 |
+| vice PRESIDENT      |  3000.0000 |
+| Network             |  2000.0000 |
++---------------------+------------+
+
+
+Q9)
+Print count of employee working in department 20.
+QUERY=>SELECT COUNT(*) AS TOTAL_MANAGERS,DEPTNO FROM EMP WHERE DEPTNO=10 AND JOB='MANAGER';
+
++----------------+--------+
+| TOTAL_MANAGERS | DEPTNO |
++----------------+--------+
+|              8 |     20 |
++----------------+--------+
+
+
+Q10) 
+Print count of employee working in department 10 having job as MANAGER.
+QUERY=>SELECT COUNT(*) AS TOTAL_MANAGERS,DEPTNO FROM EMP WHERE DEPTNO=10 AND JOB='MANAGER';
+
++----------------+--------+
+| TOTAL_MANAGERS | DEPTNO |
++----------------+--------+
+|              1 |     10 |
++----------------+--------+
+
+Q11)
+Print count of employee working in department 20 having comm as null.
+QUERY=> SELECT COUNT(*),DEPTNO FROM EMP WHERE DEPTNO=20 AND COMM IS NULL;
++----------+--------+
+| COUNT(*) | DEPTNO |
++----------+--------+
+|        8 |     20 |
++----------+--------+
+
+
+
 
 
 
