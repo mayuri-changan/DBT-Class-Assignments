@@ -210,6 +210,79 @@ QUERY=> SELECT COUNT(Sal) AS salary count, COUNT(comm) AS commission count FROM 
 |           12 |                7 |
 +--------------+------------------+
 
+16. Calculate the avg, min and max salary of those groups of employees having the job as
+CLERK or MANAGER.
+
+
+17. Display the Dept no of departments which have more than one CLERK.
+18. List names and hire dates of employees who were hired in the month of December
+19. List names and hire date of employees hired in the year 1980
+20. Display names and jobs of the people separated by a hyphen. Capitalize the first character
+of name and job.
+21. List employee numbers, names and hire dates of the people working in the department
+number 20, display the hire dates in the dd/mm/YY format
+22. Find number of months the president has worked for the company.
+23. Find the day of the week on which SMITH joined
+24. Find the time of time of the day in which ADAMS joined
+25. Find day of month on which KING joined
+26. Find out month on which MARTIN joined
+27. Find out which quarter of the year the employees joined. Display their number and names
+as well
+28. Retrieve ANALYST records with the hire date formatted as – ‘The 3rd of December 1984’
+29. List all names, jobs, and a job classification number, which is to be assigned by you.
+Translate the value started in each job field to a job classification number. This is to be
+
+done as follows-
+A. CLERK
+
+B. MANAGER
+C. PRESIDENT
+D. OTHER
+
+30. Display the length of the longest employees name
+31. Write a query to list the length of service of the employees (of the form n years and m
+months).
+32. How many employees who are joined in 1985.
+33. How many employees joined each month in 1985.
+34. How many employees who are joined in March 1985.
+
+SELECT Command GROUP BY, HAVING and Aggregate Function
+
+IET Page 2
+35. Find the total sales amount
+36. Find the customer-wise lowest and highest sales amount
+37. Find product-wise lowest, highest and total sales.
+38. Find department-wise average salary for all the departments employing more than three
+employees
+39. Find the customer-wise total sales for all the customers except ‘TKB SPORT SHOP’ who
+came to purchase various sports items maximum four times.
+40. Display the highest, lowest, sum and average salary for all employees. Label the columns
+appropriately.
+41. Modify the above query and display the output for each job type.
+42. List names of people who have salary less than the average salary for dept 20
+43. Find the average annual salary per job in each department.
+44. Count the number of people in department 30 who receive a salary and the number of
+people who receive a commission
+45. Compute the average, minimum and maximum salaries of these groups of employees
+having job as Clerk or manager, Display the job as well
+46. Write an SQL command that displays 2nd highest salary paid
+47. Write a query to find the employees who are earning the maximum salary in their
+departments.
+48. Write a query to find the salesman number (repid) who has achieved the maximum total
+sales among the entire salesman.
+49. List the highest salary paid for each job.
+50. Find the most recently hired employee in each department.
+51. In which year did most people join the company? Display the year and the number of
+employees.
+52. Write a query to display employee name whose name occurs only once in the table.
+53. Write a query to display all the details from dept table along with the no. of employee
+working in each dept.
+54. Find out which department does not have any employees.
+55. List out the no. of employees joined in every month in ascending order.
+
+
+
+
 
 
 
