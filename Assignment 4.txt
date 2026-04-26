@@ -307,6 +307,164 @@ QUERY=>SELECT EXTRACT(MONTH FROM HIREDATE)AS "HIRED MONTH",ENAME,JOB FROM EMP WH
 +-------------+-------+-----------+
 
 
+Q23)
+Find the day of the week on which SMITH joined
+QUERY=>
+
+
+
+
+
+
+
+Q24)
+Find the time of time of the day in which ADAMS joined
+QUERY=>
+
+
+Q25)
+Find day of month on which KING joined
+QUERY=>
+
+Q26)
+Find out month on which MARTIN joined
+QUERY=>SELECT EXTRACT(MONTH FROM HIREDATE) AS"JOINED IN THIS MONTH",ENAME,JOB FROM EMP WHERE ENAME="MARTIN";
+
++----------------------+--------+----------+
+| JOINED IN THIS MONTH | ENAME  | JOB      |
++----------------------+--------+----------+
+|                    9 | MARTIN | SALESMAN |
++----------------------+--------+----------+
+
+
+Q27)
+Find out which quarter of the year the employees joined. Display their number and names
+as well
+QUERY=>SELECT empno, ename, CEIL(EXTRACT(MONTH FROM hiredate) / 3) AS quarter FROM emp;
+
++-------+----------+---------+
+| empno | ename    | quarter |
++-------+----------+---------+
+|  6001 | GITA     |       3 |
+|  6129 | VRUSHALI |       3 |
+|  6473 | SHARMIN  |       3 |
+|  6781 | BANDISH  |       3 |
+|  7369 | SMITH    |       4 |
+|  7415 | AARAV    |       4 |
+|  7421 | THOMAS   |       3 |
+|  7499 | ALLEN    |       1 |
+|  7521 | WARD     |       1 |
+|  7566 | JONES    |       2 |
+|  7654 | MARTIN   |       3 |
+|  7698 | BLAKE    |       2 |
+|  7782 | CLARK    |       2 |
+|  7788 | SCOTT    |       4 |
+|  7839 | KING     |       4 |
+|  7840 | FRED     |       3 |
+|  7844 | TURNER   |       3 |
+|  7876 | ADAMS    |       1 |
+|  7888 | Ruhan    |       3 |
+|  7889 | Neel     |       3 |
+|  7900 | JAMES    |       4 |
+|  7902 | FORD     |       4 |
+|  7919 | HOFFMAN  |       1 |
+|  7920 | GRASS    |       1 |
+|  7934 | MILLER   |       1 |
+|  7945 | AARUSH   |       1 |
+|  7949 | ALEX     |       1 |
+|  8433 | NATASHA  |       3 |
+|  9400 | SANGITA  |       3 |
+|  9473 | SUPRIYA  |       3 |
++-------+----------+---------+
+
+
+Q28)
+Retrieve ANALYST records with the hire date formatted as – ‘The 3rd of December 1984’
+QUERY=>
+
+
+
+
+Q29)
+List all names, jobs, and a job classification number, which is to be assigned by you.
+Translate the value started in each job field to a job classification number. This is to be
+done as follows-
+A. CLERK
+B. MANAGER
+C. PRESIDENT
+D. OTHER
+QUERY=>SELECT ename, job, CASE WHEN job = 'CLERK' THEN 'A' WHEN job = 'MANAGER' THEN 'B' WHEN job = 'PRESIDENT' THEN 'C'ELSE 'D' END AS job classification FROM emp;
++----------+---------------------+--------------------+
+| ename    | job                 | job classification |
++----------+---------------------+--------------------+
+| GITA     | Compliance officers | D                  |
+| VRUSHALI | Compliance officers | D                  |
+| SHARMIN  | Public Relation     | D                  |
+| BANDISH  | Public Relation     | D                  |
+| SMITH    | CLERK               | A                  |
+| AARAV    | CLERK               | A                  |
+| THOMAS   | CLERK               | A                  |
+| ALLEN    | SALESMAN            | D                  |
+| WARD     | SALESMAN            | D                  |
+| JONES    | MANAGER             | B                  |
+| MARTIN   | SALESMAN            | D                  |
+| BLAKE    | MANAGER             | B                  |
+| CLARK    | MANAGER             | B                  |
+| SCOTT    | ANALYST             | D                  |
+| KING     | PRESIDENT           | C                  |
+| FRED     | vice PRESIDENT      | D                  |
+| TURNER   | SALESMAN            | D                  |
+| ADAMS    | CLERK               | A                  |
+| Ruhan    | Network             | D                  |
+| Neel     | vice PRESIDENT      | D                  |
+| JAMES    | CLERK               | A                  |
+| FORD     | ANALYST             | D                  |
+| HOFFMAN  | MANAGER             | B                  |
+| GRASS    | SALESMAN            | D                  |
+| MILLER   | CLERK               | A                  |
+| AARUSH   | SALESMAN            | D                  |
+| ALEX     | MANAGER             | B                  |
+| NATASHA  | CLERK               | A                  |
+| SANGITA  | Compliance officers | D                  |
+| SUPRIYA  | ANALYST             | D                  |
++----------+---------------------+--------------------+
+
+Q30)
+Display the length of the longest employees name
+QUERY=>SELECT ename, LENGTH(ename) AS len FROM emp WHERE LENGTH(ename) = (SELECT MAX(LENGTH(ename)) FROM emp);
++----------+------+
+| ename    | len  |
++----------+------+
+| VRUSHALI |    8 |
++----------+------+
+
+
+
+Q31)
+Write a query to list the length of service of the employees (of the form n years and m
+months).
+QUERY=>
+
+
+
+
+
+
+
+
+Q32)
+How many employees who are joined in 1985.
+QUERY=>SELECT COUNT(*) AS total_employees FROM emp WHERE EXTRACT(YEAR FROM hiredate) = 1985;
+
++-----------------+
+| total_employees |
++-----------------+
+|               0 |
++-----------------+
+
+
+
+
 
 
 
