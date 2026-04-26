@@ -463,6 +463,117 @@ QUERY=>SELECT COUNT(*) AS total_employees FROM emp WHERE EXTRACT(YEAR FROM hired
 +-----------------+
 
 
+Q33)
+How many employees joined each month in 1985.
+QUERY=>
+
+
+
+Q34)
+How many employees who are joined in March 1985.
+SELECT Command GROUP BY, HAVING and Aggregate Function
+IET Page 2
+QUERY=>
+
+
+
+Q35)
+Find the total sales amount
+QUERY=>SELECT SUM(SAL+IFNULL(COMM,0)) AS "TOTAL SALES"FROM EMP;
+
++-------------+
+| TOTAL SALES |
++-------------+
+|       73100 |
++-------------+
+
+
+Q36)
+Find the customer-wise lowest and highest sales amount
+QUERY=>SELECT CUSTID ,MIN(AMOUNT)AS"LOWEST AMOUNT",MAX(AMOUNT)AS "HIGHEST AMOUNT" FROM SALES GROUP BY CUSTID;
+
++--------+---------------+----------------+
+| CUSTID | LOWEST AMOUNT | HIGHEST AMOUNT |
++--------+---------------+----------------+
+|    100 |         50.00 |        2400.00 |
+|    101 |          8.40 |          58.00 |
+|    102 |       2300.50 |       16569.00 |
+|    103 |         24.00 |         450.00 |
+|    104 |         24.00 |        3000.00 |
+|    105 |        340.00 |       29000.00 |
+|    106 |          2.40 |         440.00 |
+|    107 |        180.00 |         280.00 |
+|    108 |        440.00 |        4800.00 |
++--------+---------------+----------------+
+
+
+
+Q37)
+Find product-wise lowest, highest and total sales.
+QUERY=>SELECT PRODID ,MIN(AMOUNT)AS"LOWEST AMOUNT",MAX(AMOUNT)AS "HIGHEST AMOUNT",SUM(AMOUNT)AS"TOTAL SALES" FROM SALES GROUP BY PRODID;
+
+
++--------+---------------+----------------+-------------+
+| PRODID | LOWEST AMOUNT | HIGHEST AMOUNT | TOTAL SALES |
++--------+---------------+----------------+-------------+
+| 102130 |         34.00 |        1703.40 |     2417.40 |
+| 100861 |         84.00 |        4500.00 |     8809.50 |
+| 100870 |          8.40 |        3306.00 |     5426.90 |
+| 100890 |         50.00 |       29000.00 |    29398.00 |
+| 100860 |         35.00 |       16569.00 |    22144.00 |
+| 200376 |          2.40 |        2400.00 |     3586.40 |
+| 100871 |        250.00 |        5600.00 |    10056.80 |
+| 101860 |         24.00 |        4800.00 |     7224.00 |
+| 101863 |       1500.00 |        2500.00 |     4000.00 |
+| 200380 |        400.00 |        1200.00 |     2200.00 |
++--------+---------------+----------------+-------------+
+
+
+Q38)
+Find department-wise average salary for all the departments employing more than three
+employees
+QUERY=>SELECT deptno, AVG(sal) AS avg_salary FROM emp GROUP BY deptno HAVING COUNT(*) > 3;
+
++--------+------------+
+| deptno | avg_salary |
++--------+------------+
+|     10 |  2770.0000 |
+|     20 |  2421.8750 |
+|     30 |  1852.0833 |
++--------+------------+
+
+
+
+Q39)
+Find the customer-wise total sales for all the customers except ‘TKB SPORT SHOP’ who
+came to purchase various sports items maximum four times.
+QUERY=> SELECT custname,  SUM(amount) AS total sales FROM sales WHERE custname <> 'TKB SPORT SHOP'GROUP BY custname HAVING COUNT(*) <= 4;
+
+
++---------------+-------------+
+| Custname      | total sales |
++---------------+-------------+
+| VOLLYRITE     |    27775.50 |
+| SHAPE UP      |      700.40 |
+| WOMENS SPORTS |      710.00 |
+| NORTH WOODS   |     6400.00 |
++---------------+-------------+
+
+
+
+
+Q40)
+Display the highest, lowest, sum and average salary for all employees. Label the columns
+appropriately.
+QUERY=> SELECT MAX(Sal) AS highest salary, MIN(Sal) AS lowest salary, SUM(Sal) AS total salary, AVG(Sal) AS average salary FROM emp;
+
++----------------+---------------+--------------+----------------+
+| highest salary | lowest salary | total salary | average salary |
++----------------+---------------+--------------+----------------+
+|           5000 |           800 |        63700 |      2123.3333 |
++----------------+---------------+--------------+----------------+
+
+
 
 
 
