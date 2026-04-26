@@ -240,7 +240,7 @@ QUERY=>SELECT DEPTNO FROM EMP WHERE JOB='CLERK' GROUP BY DEPTNO HAVING COUNT(*)>
 
 
 Q18)
-List names and hire dates of employees who were hired in the month of December
+List names and hiredates of employees who were hired in the month of December
 QUERY=>SELECT ENAME,HIREDATE AS"HIRED IN DEC " FROM EMP WHERE EXTRACT(MONTH FROM HIREDATE)=12;
 
 
@@ -256,7 +256,7 @@ QUERY=>SELECT ENAME,HIREDATE AS"HIRED IN DEC " FROM EMP WHERE EXTRACT(MONTH FROM
 
 
 Q19)
-List names and hire date of employees hired in the year 1980
+List names and hiredate of employees hired in the year 1980
 QUERY=>SELECT ENAME ,HIREDATE FROM EMP WHERE EXTRACT(YEAR FROM HIREDATE)=1980;
 
 +--------+------------+
@@ -278,8 +278,8 @@ QUERY=>
 
 
 Q21)
-List employee numbers, names and hire dates of the people working in the department
-number 20, display the hire dates in the dd/mm/YY format
+List employee numbers, names and hiredates of the people working in the department
+number 20, display the hiredates in the dd/mm/YY format
 QUERY=>SELECT EMPNO,ENAME, HIREDATE FROM EMP WHERE DEPTNO=20;
 
 +-------+---------+------------+
@@ -379,7 +379,7 @@ QUERY=>SELECT empno, ename, CEIL(EXTRACT(MONTH FROM hiredate) / 3) AS quarter FR
 
 
 Q28)
-Retrieve ANALYST records with the hire date formatted as – ‘The 3rd of December 1984’
+Retrieve ANALYST records with the hiredate formatted as – ‘The 3rd of December 1984’
 QUERY=>
 
 
