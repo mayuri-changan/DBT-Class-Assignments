@@ -465,15 +465,21 @@ QUERY=>SELECT COUNT(*) AS total_employees FROM emp WHERE EXTRACT(YEAR FROM hired
 
 Q33)
 How many employees joined each month in 1985.
-QUERY=>
+QUERY=>QUERY=>SELECT MONTHNAME(hiredate) AS month, COUNT(*) AS total_employees  FROM emp  WHERE YEAR(hiredate) = 1985 GROUP BY MONTH(hiredate), MONTHNAME(hiredate) ORDER BY MONTH(hiredate);
+
+
 
 
 
 Q34)
 How many employees who are joined in March 1985.
-SELECT Command GROUP BY, HAVING and Aggregate Function
-IET Page 2
-QUERY=>
+QUERY=>SELECT COUNT(*)  FROM emp WHERE YEAR(hiredate) = 1985 AND MONTH(hiredate) = 3;
++----------+
+| COUNT(*) |
++----------+
+|        0 |
++----------+
+
 
 
 
